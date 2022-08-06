@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 
 
 def passwordscreen():  # функция защитного экрана
@@ -10,334 +10,335 @@ def passwordscreen():  # функция защитного экрана
                  'GOOD', 'HALF', 'HAND', 'ISLE', 'ITEM', 'JAZZ', 'JUNE', 'KHAN', 'KISS', 'LADY', 'LIKE', 'MAIL', 'MASK',
                  'NAIL', 'NICE', 'OILY', 'ONYX', 'PAIN', 'POOL', 'QAZI', 'QUAD', 'RACE', 'RAIL', 'SACK', 'SOAP', 'TABU',
                  'TACT', 'UGLY', 'UNIT', 'VAIN', 'VASE', 'WAGE', 'WAIT', 'YARD', 'YOGA', 'ZERO', 'ZETA']
-    # создаем пустые пулы
+    # создаем пустые пулы, которые будут выстпупать в роли строк консоли
     passwordpool1, passwordpool2, passwordpool3, passwordpool4, passwordpool5 = [], [], [], [], []
     passwordpool6, passwordpool7, passwordpool8, passwordpool9, passwordpool10 = [], [], [], [], []
     if difficulty == 4:
         while len(passwordpool1) < 75:  # Создаем пять строк с символами визуального шума
-            passwordpool1.append(symbolpool[randint(0, 10)])
+            passwordpool1.append(choice(symbolpool))
         while len(passwordpool2) < 75:
-            passwordpool2.append(symbolpool[randint(0, 10)])
+            passwordpool2.append(choice(symbolpool))
         while len(passwordpool3) < 75:
-            passwordpool3.append(symbolpool[randint(0, 10)])
+            passwordpool3.append(choice(symbolpool))
         while len(passwordpool4) < 75:
-            passwordpool4.append(symbolpool[randint(0, 10)])
+            passwordpool4.append(choice(symbolpool))
         while len(passwordpool5) < 75:
-            passwordpool5.append(symbolpool[randint(0, 10)])
+            passwordpool5.append(choice(symbolpool))
         while len(passwordpool6) < 75:
-            passwordpool6.append(symbolpool[randint(0, 10)])
+            passwordpool6.append(choice(symbolpool))
         while len(passwordpool7) < 75:
-            passwordpool7.append(symbolpool[randint(0, 10)])
+            passwordpool7.append(choice(symbolpool))
         while len(passwordpool8) < 75:
-            passwordpool8.append(symbolpool[randint(0, 10)])
+            passwordpool8.append(choice(symbolpool))
         while len(passwordpool9) < 75:
-            passwordpool9.append(symbolpool[randint(0, 10)])
+            passwordpool9.append(choice(symbolpool))
         while len(passwordpool10) < 75:
-            passwordpool10.append(symbolpool[randint(0, 10)])
+            passwordpool10.append(choice(symbolpool))
         global pass_word
-        pass_word = wordpool4[randint(0, len(wordpool4))]  # выбираем пароль из пула
+        pass_word = choice(wordpool4)  # выбираем пароль из пула
         real_passwordpool = randint(1, 10)  # выбираем строку для иньекции пароля
         if real_passwordpool == 1:
             passwordpool1[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4) # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 2:
             passwordpool2[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4) # выбираем фальшивое слово
             passwordpool1[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 3:
             passwordpool3[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 4:
             passwordpool4[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 5:
             passwordpool5[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 6:
             passwordpool6[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 7:
             passwordpool7[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 8:
             passwordpool8[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 9:
             passwordpool9[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool10[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         elif real_passwordpool == 10:
             passwordpool10[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]  # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool3[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool4[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool5[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool6[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool7[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool8[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool9[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
-            inserter = wordpool4[randint(0, len(wordpool4) - 1)]
+            inserter = choice(wordpool4)
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         # Вывод визуала
+        # Блок вывода можно будет улучшить
         print(*passwordpool1)
         print(*passwordpool2)
         print(*passwordpool3)
@@ -348,11 +349,10 @@ def passwordscreen():  # функция защитного экрана
         print(*passwordpool8)
         print(*passwordpool9)
         print(*passwordpool10)
-
+        # Тут я остановился в своем ревью
 
 passwordscreen()  # вызываем экран пароля при запуске
-user_try = ''
-try_counter = 0
+user_try, try_counter = '', 0
 
 # процедура подбора пароля
 while True:
