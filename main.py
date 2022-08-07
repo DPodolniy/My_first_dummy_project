@@ -5,11 +5,13 @@ def passwordscreen():  # функция защитного экрана
     difficulty = 4
     # difficulty = randint(4,6) ## рандомный выбор сложности в разработке
     symbolpool = ['.', ',', '!', '@', '#', '$', '%', '^', '&', '*', '()']  # 11 символов для визуального шума
-    # 50 слов для пароля
-    wordpool4 = ['ALOE', 'ACID', 'BALD', 'BABY', 'CAFE', 'CUNT', 'DEAD', 'DICE', 'EACH', 'ECHO', 'FOAM', 'FONT', 'GAIN',
-                 'GOOD', 'HALF', 'HAND', 'ISLE', 'ITEM', 'JAZZ', 'JUNE', 'KHAN', 'KISS', 'LADY', 'LIKE', 'MAIL', 'MASK',
-                 'NAIL', 'NICE', 'OILY', 'ONYX', 'PAIN', 'POOL', 'QAZI', 'QUAD', 'RACE', 'RAIL', 'SACK', 'SOAP', 'TABU',
-                 'TACT', 'UGLY', 'UNIT', 'VAIN', 'VASE', 'WAGE', 'WAIT', 'YARD', 'YOGA', 'ZERO', 'ZETA']
+    # 76 слов для пароля
+    wordpool4 = ['ACID', 'ACHE', 'ALOE', 'BABY', 'BALD', 'BALL', 'CAFE', 'CALL', 'CUNT', 'DARK', 'DEAD', 'DICE', 'EACH',
+                 'EARN', 'ECHO', 'FACE', 'FOAM', 'FONT', 'GAIN', 'GANG', 'GOOD', 'HACK', 'HALF', 'HAND', 'IDEA', 'ISLE',
+                 'ITEM', 'JAIL', 'JAZZ', 'JUNE', 'KEEP', 'KHAN', 'KISS', 'LADY', 'LAKE', 'LIKE', 'MACE', 'MAIL', 'MASK',
+                 'NAVY', 'NAIL', 'NICE', 'OATH', 'OILY', 'ONYX', 'PACE', 'PAIN', 'POOL', 'QAZI', 'QUAD', 'QUBE', 'RACE',
+                 'RAIL', 'RARE', 'SACK', 'SAGA', 'SOAP', 'TABU', 'TACT', 'TALC', 'UGLY', 'UNIT', 'URUS', 'VAIN', 'VASE',
+                 'VEIN', 'WAGE', 'WAIT', 'WALL', 'XMAS', 'YARD', 'YEAH', 'YOGA', 'ZERO', 'ZETA', 'ZINK']
     # создаем пустые пулы, которые будут выстпупать в роли строк консоли
     passwordpool1, passwordpool2, passwordpool3, passwordpool4, passwordpool5 = [], [], [], [], []
     passwordpool6, passwordpool7, passwordpool8, passwordpool9, passwordpool10 = [], [], [], [], []
@@ -40,7 +42,7 @@ def passwordscreen():  # функция защитного экрана
         if real_passwordpool == 1:
             passwordpool1[randint(0, 74)] = pass_word
             wordpool4.remove(pass_word)
-            inserter = choice(wordpool4) # выбираем фальшивое слово
+            inserter = choice(wordpool4)  # выбираем фальшивое слово
             passwordpool2[randint(0, 74)] = inserter  # вставляем
             wordpool4.remove(inserter)  # удаляем из вордпула
             inserter = choice(wordpool4)
@@ -351,6 +353,7 @@ def passwordscreen():  # функция защитного экрана
         print(*passwordpool10)
         # Тут я остановился в своем ревью
 
+
 passwordscreen()  # вызываем экран пароля при запуске
 user_try, try_counter = '', 0
 
@@ -364,13 +367,15 @@ while True:
     if try_counter > 4 and user_try != pass_word:
         print('все возможные попытки исчерпаны')
         print('ТЕРМИНАЛ ЗАБЛОКИРОВАН')
-    right_char_counter = 0
-    print('Не тот пароль, попробуй снова. Количество попыток ', 5 - try_counter)  # Вывод текста ошибочного пароля
-    for i in range(4):
-        for j in range(i, 4):
-            if user_try[j] == pass_word[i]:
-                right_char_counter += 1
-    print('Верные символы - ', right_char_counter)
+
+    else:
+        right_char_counter = 0
+        print('Не тот пароль, попробуй снова. Количество попыток ', 5 - try_counter)  # Вывод текста ошибочного пароля
+        for i in range(4):
+            for j in range(i, 4):
+                if user_try[j] == pass_word[i]:
+                    right_char_counter += 1
+        print('Верные символы - ', right_char_counter)
 
 
 # функциональный блок
@@ -410,46 +415,45 @@ def caesar_cipher(lang, k, text):
     return ''.join(result)
 
 
-def caesar_uncipher(lang, k, text):
-    result, dict = [], ''
-    dictionary_lower, dictionary_upper = '', ''
-    if lang == 1:
-        dictionary_lower, dictionary_upper = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя", "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
-    elif lang == 2:
-        dictionary_lower, dictionary_upper = "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLNOPQRSTUVWXYZ"
-    for c in range(len(text)):
-        if text[c] in dictionary_lower:
-            dict = dictionary_lower
-        elif text[c] in dictionary_upper:
-            dict = dictionary_upper
-        else:
-            result.append(text[c])
-        if text[c] in dict:
-            for i in range(len(dict)):
-                if 0 <= i - k < len(dict) and text[c] == dict[i]:
-                    result.append(dict[i-k])
-                elif i - k >= len(dict) and text[c] == dict[i]:
-                    result.append()
-                elif i - l < 0 and text[c] == dict[i]:
-                    result.append(dict[(i-k) % len(dict)])
-    return ''.join(result)
+# def caesar_uncipher(lang, k, text):
+    # result, dict = [], ''
+    # dictionary_lower, dictionary_upper = '', ''
+    # if lang == 1:
+        # dictionary_lower, dictionary_upper = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя", "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
+    # elif lang == 2:
+        # dictionary_lower, dictionary_upper = "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLNOPQRSTUVWXYZ"
+    # for c in range(len(text)):
+        # if text[c] in dictionary_lower:
+            # dict = dictionary_lower
+        # elif text[c] in dictionary_upper:
+            # dict = dictionary_upper
+        # else:
+            # result.append(text[c])
+        # if text[c] in dict:
+            # for i in range(len(dict)):
+                # if 0 <= i - k < len(dict) and text[c] == dict[i]:
+                    # result.append(dict[i-k])
+                # elif i - k >= len(dict) and text[c] == dict[i]:
+                    # result.append()
+                # elif i - l < 0 and text[c] == dict[i]:
+                    # result.append(dict[(i-k) % len(dict)])
+    # return ''.join(result)
 
 
-def caesar_uncipher2(lang, text):
-    result, dict = [], ''
-    dictionary_lower, dictionary_upper = '', ''
-    if lang == 1:
-        dictionary_lower, dictionary_upper = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя", "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
-    elif lang == 2:
-        dictionary_lower, dictionary_upper = "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLNOPQRSTUVWXYZ"
-    for c in range(len(text)):
-        if text[c] in dictionary_lower:
-            dict = dictionary_lower
-        elif text[c] in dictionary_upper:
-            dict = dictionary_upper
-        else:
-            result.append(text[c])
-
+# def caesar_uncipher2(lang, text):
+    # result, dict = [], ''
+    # dictionary_lower, dictionary_upper = '', ''
+    # if lang == 1:
+        # dictionary_lower, dictionary_upper = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя", "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
+    # elif lang == 2:
+        # dictionary_lower, dictionary_upper = "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLNOPQRSTUVWXYZ"
+    # for c in range(len(text)):
+        # if text[c] in dictionary_lower:
+            # dict = dictionary_lower
+        # elif text[c] in dictionary_upper:
+            # dict = dictionary_upper
+        # else:
+            # result.append(text[c])
 
 
 # Блок обработки запросов
@@ -510,7 +514,7 @@ while True:
                       '2. Нет \n')
             if k == '1':
                 k = int(input('Введите ключ \n'
-                            '0. Назад в главное меню \n'))
+                              '0. Назад в главное меню \n'))
                 if k == 0:
                     continue
                 text = input('Введите дешифруемый текст \n'
@@ -518,7 +522,7 @@ while True:
                 if text == '0':
                     continue
                 elif lang == 1 or lang == 2:
-                    print(caesar_uncipher(lang, k, text))
+                    # print(caesar_uncipher(lang, k, text))
                     continue
             elif k == '2':
                 print('Секция находится в разработке')
