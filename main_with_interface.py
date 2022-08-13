@@ -332,30 +332,50 @@ def passwordscreen():  # 'Защитный' экран
             passwordpool1[randint(0, 74)] = inserter
             wordpool4.remove(inserter)
         # Вывод визуала
-        lbl1 = Label(window, text = passwordpool1, font = ("Arial Bold", 10))
-        lbl1.grid(column = 0, row = 0)
-        lbl2 = Label(window, text = passwordpool2, font = ("Arial Bold", 10))
-        lbl2.grid(column = 0, row = 1)
-        lbl3 = Label(window, text = passwordpool3, font = ("Arial Bold", 10))
-        lbl3.grid(column = 0, row = 2)
-        lbl4 = Label(window, text = passwordpool4, font = ("Arial Bold", 10))
-        lbl4.grid(column = 0, row = 3)
-        lbl5 = Label(window, text = passwordpool5, font = ("Arial Bold", 10))
-        lbl5.grid(column = 0, row = 4)
-        lbl6 = Label(window, text = passwordpool6, font = ("Arial Bold", 10))
-        lbl6.grid(column = 0, row = 5)
-        lbl7 = Label(window, text = passwordpool7, font = ("Arial Bold", 10))
-        lbl7.grid(column = 0, row = 6)
-        lbl8 = Label(window, text = passwordpool8, font = ("Arial Bold", 10))
-        lbl8.grid(column = 0, row = 7)
-        lbl9 = Label(window, text = passwordpool9, font = ("Arial Bold", 10))
-        lbl9.grid(column = 0, row = 8)
-        lbl10 = Label(window, text = passwordpool10, font = ("Arial Bold", 10))
-        lbl10.grid(column = 0, row = 9)
+        lbl1 = Label(window, text=passwordpool1, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl1.grid(column=0, row=0)
+        lbl2 = Label(window, text=passwordpool2, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl2.grid(column=0, row=1)
+        lbl3 = Label(window, text=passwordpool3, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl3.grid(column=0, row=2)
+        lbl4 = Label(window, text=passwordpool4, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl4.grid(column=0, row=3)
+        lbl5 = Label(window, text=passwordpool5, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl5.grid(column=0, row=4)
+        lbl6 = Label(window, text=passwordpool6, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl6.grid(column=0, row=5)
+        lbl7 = Label(window, text=passwordpool7, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl7.grid(column=0, row=6)
+        lbl8 = Label(window, text=passwordpool8, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl8.grid(column=0, row=7)
+        lbl9 = Label(window, text=passwordpool9, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl9.grid(column=0,row =8)
+        lbl10 = Label(window, text=passwordpool10, font=("Arial Bold", 10), bg='gray5', fg='green4')
+        lbl10.grid(column=0, row=9)
 
 window = Tk()
 window.title('pythonProject')
-window.geometry('1000x500')
+window.geometry('900x500')
 passwordscreen()
+user_try, try_counter = '', 0
 window.mainloop()
+while True:
+    user_try = input()  # повтор ввода
+    if user_try == pass_word or user_try == 'skip':
+        print('Успешно!')
+        break
+    try_counter += 1
+    if try_counter > 4 and user_try != pass_word:
+        print('все возможные попытки исчерпаны')
+        print('ТЕРМИНАЛ ЗАБЛОКИРОВАН')
+
+    else:
+        right_char_counter = 0
+        print('Не тот пароль, попробуй снова. Количество попыток ', 5 - try_counter)  # Вывод текста ошибочного пароля
+        for i in range(4):
+            for j in range(i, 4):
+                if user_try[j] == pass_word[i]:
+                    right_char_counter += 1
+        print('Верные символы - ', right_char_counter)
+
 
